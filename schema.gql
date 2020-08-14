@@ -1,0 +1,35 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String!
+}
+
+type AuthUserType {
+  id: ID!
+  email: String!
+  firstName: String
+  lastName: String
+  lastLogin: DateTime
+  token: String
+  tokenExpires: DateTime
+  refreshToken: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  me: User!
+  login(credentials: SignInInput!): AuthUserType!
+}
+
+input SignInInput {
+  email: String!
+}
