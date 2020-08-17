@@ -27,6 +27,7 @@ export const TENANT_CONNECTION = Symbol('TENANT_CONNECTION');
       inject: [REQUEST],
       scope: Scope.REQUEST,
       useFactory: async (request) => {
+        // Inject typeorm Connection (and define in app.module) and use it instead mock
         const tenant = MockConnection.master.repositories.tenants.find(t => t.host === request?.req.headers.host);
 
         if (!tenant) {

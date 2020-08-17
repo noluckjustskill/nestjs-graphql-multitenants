@@ -8,7 +8,7 @@ import { UserType } from './types/user.type';
 export class UsersService {
   constructor(
     @Inject(TENANT_CONNECTION)
-    readonly connection: IConnection,
+    private readonly connection: IConnection,
   ) {}
 
   async get(id: string): Promise<UserType> {

@@ -33,13 +33,13 @@ import { UsersModule } from './users/users.module';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         context: ({ req }) => ({ req }),
-        // installSubscriptionHandlers: true,
         debug: configService.get('NODE_ENV') !== 'production',
         playground: configService.get('NODE_ENV') !== 'production',
         autoSchemaFile: 'schema.gql',
         path: '/api/graphql',
       }),
     }),
+    // TypeOrm module with with connection to <private_schema>.<users_table>
     CommonModule,
     TenantModule,
     AuthModule,
